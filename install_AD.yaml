@@ -4,14 +4,8 @@
   tasks:
    - name: install-ad
      apt:
-       name: kontrast
-       state: present
-     apt:
-       name: sssd-ad
-       state: present 
-     apt:
-       name: sssd-tools
-       state: present 
-     apt:
-       name: sssd-adcli
+       name: 
+        - sssd-ad
+        - sssd-tools
+        - sssd-adcli
        state: present 
