@@ -2,13 +2,10 @@
 - name: ajout d'une machine ubuntu a un domaine
   hosts: all
   become: true
-  vars_prompt:
-    - name: "bind_password"
-      prompt: "Password for the AD user"
-      private: yes
+
   tasks:
     - name: Join system
-      command: /bin/bash -c "echo {{ bind_password }} | realm join --user=ansible barzini.com"
+      command: /bin/bash -c "echo *Idefix2024* | realm join --user=ansible barzini.com"
       register: join_output
       no_log: True
       ignore_errors: yes
