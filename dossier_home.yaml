@@ -5,9 +5,8 @@
   
   tasks:
     - name: dossier
-      command: /bin/bash -c "echo *pam-auth-update --enable mkhomedir"
+      command: /bin/bash -c "echo pam-auth-update --enable mkhomedir"
       register: join_output
-      no_log: True
       ignore_errors: yes  
     - name: Display success message
       debug:
