@@ -8,13 +8,11 @@
       command: /bin/bash -c "echo *pam-auth-update --enable mkhomedir"
       register: join_output
       no_log: True
-      ignore_errors: yes
-      
-   - name: Display success message
+      ignore_errors: yes  
+    - name: Display success message
       debug:
         msg: "Join successful!"
       when: join_output.rc == 0
-
     - name: Display error message
       debug:
         msg: "Join failed or already joined"
