@@ -1,11 +1,11 @@
 ---
-name: Mise à jour du poste Ubuntu
-hosts: all
-tasks:
-  - name: Mise à jour de la liste des paquets
-    apt:
-      update_cache: yes
+name : Mise à jour du poste Ubuntu
+hosts : all
+tasks :
+  - name : Mise à jour de la liste des paquets
+    apt :
+      update_cache : yes
 
-  - name: Mise à niveau des paquets installés
-    apt:
-      upgrade: dist
+  - name : Mise à niveau des paquets installés
+    apt :
+      upgrade : dist
