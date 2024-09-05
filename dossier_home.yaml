@@ -9,12 +9,12 @@
       register: join_output
       no_log: True
       ignore_errors: yes
-     - name: Message de reussite
+   - name: Display success message
       debug:
-        msg: "jointure réussie"
+        msg: "Join successful!"
       when: join_output.rc == 0
 
-    - name: message d'echec
+    - name: Display error message
       debug:
-        msg: "Pas de jointure"
+        msg: "Join failed or already joined"
       when: join_output.rc != 0
