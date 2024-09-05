@@ -13,4 +13,5 @@
         - libnss-sss
         - libpam-sss
         - samba-common-bin
+        - smbclient
        state: present 
