@@ -1,0 +1,24 @@
+---
+- name: ajout d'une machine ubuntu a un domaine
+  hosts: linux
+  become: true
+  vars_prompt:
+    - name: "bind_password"
+      prompt: "Password for the AD user"
+      private: yes
+  tasks:
+    - name: Join system
+      command: /bin/bash -c "echo {{ bind_password }} | realm join --user=ansible barzini.com"
+      register: join_output
+      no_log: True
+      ignore_errors: yes
+
+    - name: Message de reussite
+      debug:
+        msg: "jointure réussie"
+      when: join_output.rc == 0
+
+    - name: message d'echec
+      debug:
+        msg: "Pas de jointure"
+      when: join_output.rc != 0
