@@ -9,6 +9,7 @@
       register: join_output
       no_log: True
       ignore_errors: yes
+      
    - name: Display success message
       debug:
         msg: "Join successful!"
