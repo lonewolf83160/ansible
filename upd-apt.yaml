@@ -1,27 +1,11 @@
 ---
-- name: Update and upgrade apt packages
-  hosts: all
+name: Mise à jour du poste Ubuntu
+hosts: all
+tasks:
+  - name: Mise à jour de la liste des paquets
+    apt:
+      update_cache: yes
 
-  tasks:
-    - name: Update packages with apt
-      when: ansible_pkg_mgr == 'apt'
-      ansible.builtin.apt:
-        update_cache: true
-
-    - name: Update packages with yum
-      when: ansible_pkg_mgr == 'yum'
-      ansible.builtin.yum:
-        name: '*'
-        state: latest # noqa: package-latest
-
-    - name: Upgrade packages with apt
-      when: ansible_pkg_mgr == 'apt'
-      ansible.builtin.apt:
-        upgrade: dist
-
-    - name: Upgrade packages with yum
-      when: ansible_pkg_mgr == 'yum'
-      ansible.builtin.yum:
-        name: '*'
-        state: latest # noqa: package-latest
-        exclude: kernel*
+  - name: Mise à niveau des paquets installés
+    apt:
+      upgrade: dist
