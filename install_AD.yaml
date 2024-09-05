@@ -15,4 +15,5 @@
         - samba-common-bin
         - smbclient
         - cifs-utils
+        - libpam-mount
        state: present 
