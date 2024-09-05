@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+   - name: install-ad
+     apt:
+       name: kontrast
+       state: present
+     apt:
+       name: sssd-ad
+       state: present 
+     apt:
+       name: sssd-tools
+       state: present 
+     apt:
+       name: sssd-adcli
+       state: present 
