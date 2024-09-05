@@ -1,0 +1,9 @@
+---
+- host: all
+  become: yes
+  task:
+   - name: install-kontrast
+     apt:
+       name: kontrast
+       state: present
+       
