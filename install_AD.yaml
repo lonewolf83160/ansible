@@ -7,5 +7,6 @@
        name: 
         - sssd-ad
         - sssd-tools
-        - sssd-adcli
+        - realmd
+        - adcli
        state: present 
