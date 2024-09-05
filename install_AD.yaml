@@ -9,4 +9,8 @@
         - sssd-tools
         - realmd
         - adcli
+        - sssd
+        - libnss-sss
+        - libpam-sss
+        - samba-common-bin
        state: present 
