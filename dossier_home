@@ -1,0 +1,20 @@
+---
+- name: ajout du dossier utilisateur
+  hosts: all
+  become: true
+
+  tasks:
+    - name: dossier
+      command: /bin/bash -c "echo *pam-auth-update --enable mkhomedir"
+      register: join_output
+      no_log: True
+      ignore_errors: yes
+     - name: Message de reussite
+      debug:
+        msg: "jointure réussie"
+      when: join_output.rc == 0
+
+    - name: message d'echec
+      debug:
+        msg: "Pas de jointure"
+      when: join_output.rc != 0
