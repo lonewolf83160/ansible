@@ -1,6 +1,6 @@
 ---
 - name: Edit SSSD configuration file
-  hosts: linux
+  hosts: all
   become: true
   tasks:
     - name: Modify access_provider line
