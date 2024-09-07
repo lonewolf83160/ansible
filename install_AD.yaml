@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: introduction AD
+  hosts: all
   become: yes
   tasks:
    - name: install-ad
