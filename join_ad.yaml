@@ -9,7 +9,7 @@
       register: join_output
       no_log: True
       ignore_errors: yes
-     - name: Message de reussite
+    - name: Message de reussite
       debug:
         msg: "jointure réussie"
       when: join_output.rc == 0
