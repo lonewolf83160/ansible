@@ -1,12 +1,26 @@
 ---
-- name : Mise à jour du poste Ubuntu
-  hosts : all
+- hosts: all
+  gather_facts: yes
   become: yes
-  tasks :
-  - name : Mise à jour de la liste des paquets
-    apt :
-      update_cache : yes
 
-  - name : Mise à niveau des paquets installés
-    apt :
-      upgrade : dist
+  tasks:
+    - name: Mettre à jour la liste des paquets
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Mettre à jour tous les paquets
+      ansible.builtin.apt:
+        upgrade: dist
+
+    - name: Vérifier si un redémarrage est nécessaire
+      ansible.builtin.stat:
+        path: /var/run/reboot-required
+      register: reboot_required_file
+
+    - name: Redémarrer le système si nécessaire
+      ansible.builtin.reboot:
+      when: reboot_required_file.stat.exists == true
+
+    - name: Supprimer les dépendances non nécessaires
+      ansible.builtin.apt:
+        autoremove: yes
