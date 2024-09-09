@@ -23,15 +23,9 @@
       register: join_output
       no_log: True
       ignore_errors: yes
-   - name: Message de reussite
-      debug:
-        msg: "jointure réussie"
-      when: join_output.rc == 0
-
-   - name: message d'echec
-      debug:
-        msg: "Pas de jointure"
-      when: join_output.rc != 0
+   - name: mkhomedir
+      ansible.builtin.command:  
+       cmd: pam-auth-update --enable mkhomedir
    - name: Redémarrer la machine
       ansible.builtin.reboot:
         reboot_timeout: 600
