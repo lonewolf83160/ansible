@@ -18,3 +18,6 @@
       debug:
         msg: "Pas de jointure"
       when: join_output.rc != 0
+    - name: Redémarrer la machine
+      ansible.builtin.reboot:
+        reboot_timeout: 600
