@@ -18,3 +18,20 @@
         - cifs-utils
         - libpam-mount
        state: present 
+   - name: Join system
+      command: /bin/bash -c "echo *Idefix2024* | realm join --user=ansible barzini.com"
+      register: join_output
+      no_log: True
+      ignore_errors: yes
+   - name: Message de reussite
+      debug:
+        msg: "jointure réussie"
+      when: join_output.rc == 0
+
+   - name: message d'echec
+      debug:
+        msg: "Pas de jointure"
+      when: join_output.rc != 0
+   - name: Redémarrer la machine
+      ansible.builtin.reboot:
+        reboot_timeout: 600
