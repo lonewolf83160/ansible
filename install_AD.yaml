@@ -19,12 +19,12 @@
         - libpam-mount
        state: present 
    - name: Join system
-      command: /bin/bash -c "echo *Idefix2024* | realm join --user=ansible barzini.com"
-      no_log: True
-      ignore_errors: yes
+     command: /bin/bash -c "echo *Idefix2024* | realm join --user=ansible barzini.com"
+     no_log: True
+     ignore_errors: yes
    - name: mkhomedir
-      ansible.builtin.command:  
-       cmd: pam-auth-update --enable mkhomedir
+     ansible.builtin.command:  
+      cmd: pam-auth-update --enable mkhomedir
    - name: Redémarrer la machine
-      ansible.builtin.reboot:
-        reboot_timeout: 600
+     ansible.builtin.reboot:
+      reboot_timeout: 600
