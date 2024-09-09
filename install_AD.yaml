@@ -20,7 +20,6 @@
        state: present 
    - name: Join system
       command: /bin/bash -c "echo *Idefix2024* | realm join --user=ansible barzini.com"
-      register: join_output
       no_log: True
       ignore_errors: yes
    - name: mkhomedir
