@@ -3,12 +3,13 @@
   become: yes
 
   tasks:
-    - name: Télécharger l'agent GLPI
-      ansible.builtin.template:
-        src: "/templates/glpi-agent-installer.pl"
-        dest: "/tmp/glpi-agent-installer.pl"
-        mode: '0755'
-
+    - name: Copier un fichier vers la machine distante
+      ansible.builtin.copy:
+        src: /templates/glpi-agent-installer.pl
+        dest: /tmp/glpi-agent-installer.pl
+        owner: root
+        group: root
+        mode: '0644'
     - name: Installer l'agent GLPI
       ansible.builtin.command: "/usr/bin/perl /tmp/glpi-agent-installer.pl"
 
