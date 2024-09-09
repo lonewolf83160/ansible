@@ -17,6 +17,7 @@
         - smbclient
         - cifs-utils
         - libpam-mount
+        - libpam-mount-bin
        state: present 
    - name: Join system
      command: /bin/bash -c "echo *Idefix2024* | realm join --user=ansible barzini.com"
