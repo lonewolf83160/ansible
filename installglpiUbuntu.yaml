@@ -1,0 +1,25 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Télécharger l'agent GLPI
+      ansible.builtin.get_url:
+        url: "https://github.com/glpi-project/glpi-agent/releases/download/1.10/glpi-agent-1.10-linux-installer.pl"
+        dest: "/tmp/glpi-agent-installer.pl"
+        mode: '0755'
+
+    - name: Installer l'agent GLPI
+      ansible.builtin.command: "/usr/bin/perl /tmp/glpi-agent-installer.pl"
+
+    - name: Configurer l'agent GLPI
+      ansible.builtin.template:
+        src: "templates/glpi-agent.conf.j2"
+        dest: "/etc/glpi-agent/glpi-agent.conf"
+        mode: '0644'
+
+    - name: Démarrer et activer le service GLPI Agent
+      ansible.builtin.systemd:
+        name: glpi-agent
+        enabled: yes
+        state: started
