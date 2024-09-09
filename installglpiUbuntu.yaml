@@ -5,7 +5,7 @@
   tasks:
     - name: Télécharger l'agent GLPI
       ansible.builtin.template:
-        src: "templates/glpi-agent-installer.pl"
+        src: "/templates/glpi-agent-installer.pl"
         dest: "/tmp/glpi-agent-installer.pl"
         mode: '0755'
 
@@ -14,7 +14,7 @@
 
     - name: Configurer l'agent GLPI
       ansible.builtin.template:
-        src: "templates/glpi-agent.conf.j2"
+        src: "/templates/glpi-agent.conf.j2"
         dest: "/etc/glpi-agent/glpi-agent.conf"
         mode: '0644'
 
