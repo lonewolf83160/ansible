@@ -5,7 +5,8 @@
   
   tasks:
     - name: mkhomedir
-      ansible.builtin.command:  cmd: pam-auth-update --enable mkhomedir
+      ansible.builtin.command:  
+       cmd: pam-auth-update --enable mkhomedir
     - name: Redémarrer PAM
       ansible.builtin.service:
         name: pam
