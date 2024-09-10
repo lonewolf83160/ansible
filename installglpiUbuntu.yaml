@@ -1,7 +1,8 @@
 ---
- hosts: all
- become: yes
- tasks:
+- name: installation agent glpi
+  hosts: all
+  become: yes
+  tasks:
     - name: Copier un fichier vers la machine distante
       ansible.builtin.copy:
         src: /templates/glpi-agent-installer.pl
