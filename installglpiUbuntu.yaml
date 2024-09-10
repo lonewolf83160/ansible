@@ -1,7 +1,6 @@
 ---
-- hosts: all
-  become: yes
-
+ hosts: all
+ become: yes
   tasks:
     - name: Copier un fichier vers la machine distante
       ansible.builtin.copy:
@@ -11,13 +10,7 @@
         group: root
         mode: '0644'
     - name: Installer l'agent GLPI
-      ansible.builtin.command: "/usr/bin/perl /tmp/glpi-agent-installer.pl"
-
-    - name: Configurer l'agent GLPI
-      ansible.builtin.template:
-        src: "/templates/glpi-agent.conf.j2"
-        dest: "/etc/glpi-agent/glpi-agent.conf"
-        mode: '0644'
+      ansible.builtin.command: "/usr/bin/perl /tmp/glpi-agent-installer.pl -s --server="http://192.168.1.10/glpi/front/inventory-php"
 
     - name: Démarrer et activer le service GLPI Agent
       ansible.builtin.systemd:
