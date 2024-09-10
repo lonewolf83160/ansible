@@ -10,7 +10,7 @@
         group: root
         mode: '0644'
     - name: Installer l'agent GLPI
-      ansible.builtin.command: "/usr/bin/perl /tmp/glpi-agent-installer.pl -s --server="http://192.168.1.10/glpi/front/inventory-php"
+      ansible.builtin.command: "/usr/bin/perl /tmp/glpi-agent-installer.pl -s --server=http://192.168.1.10/glpi/front/inventory-php"
 
     - name: Démarrer et activer le service GLPI Agent
       ansible.builtin.systemd:
