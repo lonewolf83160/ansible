@@ -9,5 +9,5 @@
       dest: C:\temp\cca.msi
 
    - name: installation
-      win_command: 
-       cmd: c:\temp\CCA.msi /quiet
+     win_command: 
+      cmd: c:\temp\CCA.msi /quiet
