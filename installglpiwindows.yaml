@@ -11,7 +11,6 @@
    - name: Installer glpi avec win_package
      win_package:
        path: C:\temp\glpiagent.msi
-       arguments:
-       - /quiet SERVER="https://192.168.1.10/glpi/front/inventory.php HTTPD_TRUST=192.168.1.0/24 NO_SSL_CHEK=1
+       arguments: '/quiet SERVER="https://192.168.1.10/glpi/front/inventory.php HTTPD_TRUST=192.168.1.0/24 NO_SSL_CHEK=1'
        
        state: present
