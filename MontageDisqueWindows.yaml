@@ -12,6 +12,5 @@
         triggers:
           - type: logon
             start_boundary: '2024-09-12T08:00:00'
-        username: "AnyUser"
         state: present
         enabled: true
