@@ -4,6 +4,7 @@
     - name: Créer une tâche planifiée pour exécuter un script PowerShell
       community.windows.win_scheduled_task:
         name: "montage du disque reseau"
+        path: \Custom
         description: "Cette tâche exécute un script PowerShell."
         actions:
           - path: "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
