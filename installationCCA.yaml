@@ -6,8 +6,8 @@
    - name: Télécharger le package CCA
      win_get_url:
       url: https://github.com/ThePacielloGroup/CCAe/releases/download/v3.5.3/CCA-Setup-3.5.3.msi
-      dest: C:\temp\cca.msi
+      dest: C:/temp/cca.msi
 
    - name: installation
      win_command: 
-      cmd: c:\temp\CCA.msi /quiet
+      cmd: c:/temp\/CA.msi /quiet
