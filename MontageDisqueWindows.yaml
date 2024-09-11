@@ -1,5 +1,5 @@
 - name: Créer une tâche planifiée
-  hosts: windows
+  hosts: all
   tasks:
     - name: Créer une tâche planifiée pour exécuter un script PowerShell
       win_scheduled_task:
