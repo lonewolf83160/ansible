@@ -4,7 +4,6 @@
   gather_facts: false
   tasks:
     - name: installation
-      win_package
-       win_package:
+      win_package:
          path: \\srvad\netlogon\CCA-Setup-3.5.3.msi
-    state: present
+         state: present
