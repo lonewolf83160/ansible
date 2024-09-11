@@ -10,4 +10,4 @@
 
    - name: installation
      win_command: 
-      cmd: c:\temp\CA.msi /quiet
+      cmd: c:\temp\cca.msi /quiet
