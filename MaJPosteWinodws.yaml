@@ -1,0 +1,8 @@
+---
+- name: Mettre à jour plusieurs postes Windows
+  hosts: all
+  tasks:
+    - name: Installer les mises à jour Windows
+      ansible.windows.win_updates:
+        category_names: ['SecurityUpdates', 'CriticalUpdates']
+        reboot: yes
