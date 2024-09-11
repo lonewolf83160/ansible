@@ -5,5 +5,5 @@
   tasks:
     - name: installation
       win_package:
-         path: \\srvad\netlogon\CCA-Setup-3.5.3.msi
+         path: "\\srvad\netlogon\CCA-Setup-3.5.3.msi"
          state: present
