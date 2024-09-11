@@ -1,0 +1,17 @@
+---
+- name: installation de CCA
+  hosts: all 
+  gather_facts: false
+  tasks:
+   - name: Télécharger le package CCA
+     ansible.windows.win_get_url:
+      url: https://github.com/glpi-project/glpi-agent/releases/download/1.10/GLPI-Agent-1.10-x64.msi
+      dest: C:\temp\glpiagent.msi
+
+   - name: Installer 7-Zip avec win_package
+     win_package:
+       path: C:\temp\glpiagent.msi
+       arguments:
+       - /quiet SERVER="https://192.168.1.10/glpi/front/inventory.php HTTPD_TRUST=192.168.1.0/24 NO_SSL_CHEK=1
+       
+       state: present
