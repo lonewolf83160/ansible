@@ -8,7 +8,7 @@
       url: https://github.com/ThePacielloGroup/CCAe/releases/download/v3.5.3/CCA-Setup-3.5.3.msi
       dest: C:\temp\cca.msi
 
-   - name: Installer 7-Zip avec win_package
+   - name: Installer CCA avec win_package
      win_package:
        path: C:\temp\cca.msi
        arguments:
