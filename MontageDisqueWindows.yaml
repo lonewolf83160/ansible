@@ -1,0 +1,15 @@
+- name: Créer une tâche planifiée
+  hosts: windows
+  tasks:
+    - name: Créer une tâche planifiée pour exécuter un script PowerShell
+      win_scheduled_task:
+        name: "montage du disque reseau"
+        description: "Cette tâche exécute un script PowerShell."
+        actions:
+          - path: "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+            arguments: "-File \\srvad.barzini.com\netlogon\disque.ps"
+        triggers:
+          - type: logon
+            start_boundary: '2024-09-12T08:00:00'
+        username: "SYSTEM"
+        state: present
