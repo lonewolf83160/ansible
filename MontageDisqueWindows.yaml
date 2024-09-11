@@ -7,7 +7,7 @@
         description: "Cette tâche exécute un script PowerShell."
         actions:
           - path: "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-            arguments: "-File \\srvad.barzini.com\\netlogon\\disque.ps1"
+            arguments: -File \\srvad.barzini.com\\netlogon\\disque.ps1
         triggers:
           - type: logon
             start_boundary: '2024-09-12T08:00:00'
