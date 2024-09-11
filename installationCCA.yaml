@@ -3,6 +3,11 @@
   hosts: all 
   gather_facts: false
   tasks:
+   - name: Télécharger le package CCA
+     win_get_url:
+     url: https://github.com/ThePacielloGroup/CCAe/releases/download/v3.5.3/CCA-Setup-3.5.3.msi
+     dest: C:\temp\cca.msi
+
     - name: installation
       win_command: 
-       cmd: \\srvad\netlogon\CCA-Setup-3.5.3.msi /quiet
+       cmd: \\srvad\netlogon\CCA.msi /quiet
