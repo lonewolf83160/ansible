@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   tasks:
-   - name: install-ad
+   - name: installation des module pour l'active directory
      apt:
        name: 
         - sssd-ad
@@ -19,13 +19,17 @@
         - libpam-mount
         - libpam-mount-bin
        state: present 
-   - name: Join system
+   - name: Jonction au domaine de la machine
      command: /bin/bash -c "echo *Idefix2024* | realm join --user=ansible barzini.com"
      no_log: True
      ignore_errors: yes
-   - name: mkhomedir
+   - name: Ajoute la creation automatique d'un dossier home pour tout les utilisateur de l'active directory
      ansible.builtin.command:  
       cmd: pam-auth-update --enable mkhomedir
+   - name: modification du fichier pam pour le montage automatique du dossier partagé windows
+     ansible.builtin.shell:
+       cmd: echo "<volume fstype="cifs" server="srvad.barzini.com" path="Racine" mountpoint="~/partage" options="iocharset=utf8" />" >> /etc/security/pam_mount.conf.xml      
    - name: Redémarrer la machine
      ansible.builtin.reboot:
       reboot_timeout: 600
+  
