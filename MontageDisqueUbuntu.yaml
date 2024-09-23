@@ -1,1 +1,14 @@
-
+---
+- name: Montage des disques partage windows pour Ubuntu
+  hosts: all
+  become: yes
+  tasks:
+    - name: Copier un fichier vers la machine distante
+      ansible.builtin.copy:
+        src: /templates/MontageDossierPartageeUbuntu.sh
+        dest: /tmp/MontageDossierPartageeUbuntu.sh
+        owner: root
+        group: root
+        mode: '0644'
+    - name: execute le script
+      ansible.builtin.command: "/tmp/MontageDossierPartageeUbuntu.sh"
