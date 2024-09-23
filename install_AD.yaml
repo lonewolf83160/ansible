@@ -32,4 +32,12 @@
    - name: Redémarrer la machine
      ansible.builtin.reboot:
       reboot_timeout: 600
-  
+   - name: Copier un fichier vers la machine distante
+     ansible.builtin.copy:
+        src: /templates/MontageDossierPartageeUbuntu.sh
+        dest: /tmp/MontageDossierPartageeUbuntu.sh
+        owner: ansible
+        group: root
+        mode: '0644'
+   - name: execute le script
+     ansible.builtin.command: "/tmp/MontageDossierPartageeUbuntu.sh"
